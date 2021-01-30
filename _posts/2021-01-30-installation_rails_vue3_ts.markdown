@@ -13,7 +13,7 @@ categories: installation
 
 ## Railsセットアップ
 
-```
+```shell
 $ bundle init
 $ echo 'gem "rails", "~> 6.0.3"' >> Gemfile
 $ bundle install --path vendor/bundle
@@ -23,15 +23,15 @@ $ bundle exec rails _5.2.2.1_ new . --skip-coffee --skip-turbolinks --skip-test-
 
 - 動作確認
 
-```
+```shell
 $ bundle exec rails s
 ```
 - localhost:3000で画面を見ようとしたら、sqlite関連でエラー
 
 - GemfileでsqliteのVersionをダウングレード
     - `gem 'sqlite3', '~> 1.3.6'`
-  
-```
+
+```shell
 $ bundle install --path vendor/bundle
 ```
 
@@ -41,12 +41,12 @@ $ bundle install --path vendor/bundle
 
 - Vue用のパッケージをインストール
 
-```
+```shell
 $ yarn add --dev vue@next vue-loader@next @vue/compiler-sfc
 ```
 - package.jsonで、Vueのバージョンを確認
 
-```
+```json
 {
   "name": "rails_vue3_ts",
   "private": true,
@@ -61,7 +61,7 @@ $ yarn add --dev vue@next vue-loader@next @vue/compiler-sfc
 
 - Webpack でVueもコンパイルするように設定
 
-```
+```ruby
 const { environment } = require('@rails/webpacker')
 const { VueLoaderPlugin } = require('vue-loader')
 environment.plugins.prepend(
@@ -82,7 +82,7 @@ module.exports = environment
 
 - generateコマンド
 
-```
+```shell
 $ bundle exec rails g controller HelloWorld index --no-helper --no-asset
 ```
 
@@ -98,7 +98,7 @@ http://0.0.0.0:3000/hello_world/index
 
 app/javascript/app.vue
 
-```
+```vue
 <template>
   <p>
     {{ message }}
@@ -125,7 +125,7 @@ p {
 
 app/views/hello_vue/index.html.erb
 
-```
+```html
 <h1>HelloWorld#index</h1>
 <p>Find me in app/views/hello_world/index.html.erb</p>
 <div id='vue-app'></div>
@@ -133,7 +133,7 @@ app/views/hello_vue/index.html.erb
 
 app/javascript/packs/hello_world.js
 
-```
+```js
 import { createApp } from "vue";
 import App from "../app.vue";
 
