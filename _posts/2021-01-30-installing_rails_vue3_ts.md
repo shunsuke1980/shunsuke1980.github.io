@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Installing Rails5.2, Vue3.0 and Typscript"
-date:   2021-01-30 09:16:26 +0900
+date:   2021-01-30 09:00:00 +0900
 categories: installation
 ---
 
