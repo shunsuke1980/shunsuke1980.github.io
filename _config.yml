@@ -17,7 +17,7 @@ theme: jekyll-theme-so-simple
 # remote_theme: mmistakes/so-simple-theme
 skin: "/assets/css/skins/default.css"
 locale: en-US
-title: HanTen Blog
+title: HanTen Paradise
 description: >- # this means to ignore newlines until "baseurl:"
   Write work logs about daily programming.
 baseurl: # the subpath of your site, e.g. "/blog"
@@ -35,7 +35,7 @@ google_fonts:
     weights: "400,400i,700,700i"
   - name: "Lora"
     weights: "400,400i,700,700i"
-google_analytics: "G-VM5MDVFSWS"
+google_analytics: "UA-189316501-1"
 disqus:
   shortname: # Disqus shortname, e.g. "my_disqus_shortname"
 twitter:
