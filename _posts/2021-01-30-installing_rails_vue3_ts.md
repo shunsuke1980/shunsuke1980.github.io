@@ -5,41 +5,41 @@ date:   2021-01-30 09:00:00 +0900
 categories: installation
 ---
 
-## Railsセットアップ
+## Rails
 
 ```shell
 $ bundle init
 $ echo 'gem "rails", "5.2.2.1"' >> Gemfile
 $ bundle install --path vendor/bundle
-# ここで、--webpack=vueを指定するとVue2.6が入ってしまうので、指定しない
+# Don't use --webpack=vue . --webpack=vue is for Vue2.6
 $ bundle exec rails _5.2.2.1_ new . --skip-coffee --skip-turbolinks --skip-test-unit --webpack
 ```
 
-- 動作確認
+- Open browser (localhost:3000).
 
 ```shell
 $ bundle exec rails s
 ```
 
-- localhost:3000で画面を見ようとしたら、sqlite関連でエラー
+- Error happens about sqlite.
 
-- GemfileでsqliteのVersionをダウングレード
+- Change sqlite gem version in Gemfile.
     - `gem 'sqlite3', '~> 1.3.6'`
 
 ```shell
 $ bundle install --path vendor/bundle
 ```
 
-- localhost:3000で Hello worldをブラウザから確認
+- Open browser (localhost:3000). You can see Hello world.
 
-## Vue3のセットアップ
+## Set up Vue3
 
-- Vue用のパッケージをインストール
+- Installing Vue3
 
 ```shell
 $ yarn add --dev vue@next vue-loader@next @vue/compiler-sfc
 ```
-- package.jsonで、Vueのバージョンを確認
+- Check version in package.json.
 
 ```json
 {
@@ -54,7 +54,7 @@ $ yarn add --dev vue@next vue-loader@next @vue/compiler-sfc
 }
 ```
 
-- Webpack でVueもコンパイルするように設定
+- Setting Webpack for compiling Vue
 
 ```ruby
 const { environment } = require('@rails/webpacker')
@@ -71,25 +71,25 @@ environment.loaders.prepend('vue', {
 })
 module.exports = environment
 ```
-- config/webpacker.yml の extensions に .vue を追加
+- Edit config/webpacker.yml for adding .vue extensions.
 
-## 画面から確認できるように空のロジック（Railsのみ）を作成
+## Operation check
 
-- generateコマンド
+- Generate emty rails logic.
 
 ```shell
 $ bundle exec rails g controller HelloWorld index --no-helper --no-asset
 ```
 
-- 画面を確認
+- Open browser
 
 ```
 http://0.0.0.0:3000/hello_world/index
 ```
 
-## 空のロジックをVue3対応する
+## Generate emty vue3 logic.
 
-- Vueファイル作成
+- Create Vue file
 
 app/javascript/app.vue
 
@@ -138,13 +138,13 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 ```
 
-- 画面に「Hello Vue!」が表示されていることを確認
+- Open browser
 
 ```
 http://0.0.0.0:3000/hello_world/index
 ```
 
-## Vue3をTypscriptでもかけるように
+## Enable Typscript for Vue3
 
 - `bin/rails webpacker:install:typescript`
 
