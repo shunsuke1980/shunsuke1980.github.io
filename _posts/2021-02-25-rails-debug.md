@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "5 tips rails debug"
+title:  "3 tips rails debug"
 date:   2021-02-25 09:00:00 +0900
 categories: installation
 ---
