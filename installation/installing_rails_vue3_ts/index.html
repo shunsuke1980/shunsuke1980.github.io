@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<!--
+    So Simple Jekyll Theme 3.2.0
+    Copyright 2013-2019 Michael Rose - mademistakes.com | @mmistakes
+    Free for personal and commercial use under the MIT license
+    https://github.com/mmistakes/so-simple-theme/blob/master/LICENSE
+-->
+<html lang="en-US" class="no-js">
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  
+
+  
+    
+    <!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Installing Rails5.2, Vue3.0 and Typscript | HanTen Paradise</title>
+<meta name="generator" content="Jekyll v3.9.0" />
+<meta property="og:title" content="Installing Rails5.2, Vue3.0 and Typscript" />
+<meta name="author" content="Shunske" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Rails" />
+<meta property="og:description" content="Rails" />
+<meta property="og:site_name" content="HanTen Paradise" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2021-01-30T00:00:00+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Installing Rails5.2, Vue3.0 and Typscript" />
+<meta name="twitter:site" content="@" />
+<meta name="twitter:creator" content="@Shunske" />
+<script type="application/ld+json">
+{"description":"Rails","headline":"Installing Rails5.2, Vue3.0 and Typscript","dateModified":"2021-01-30T00:00:00+00:00","url":"/installation/installing_rails_vue3_ts/","datePublished":"2021-01-30T00:00:00+00:00","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"/installation/installing_rails_vue3_ts/"},"author":{"@type":"Person","name":"Shunske"},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+  
+
+  <script>
+    /* Cut the mustard */
+    if ( 'querySelector' in document && 'addEventListener' in window ) {
+      document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + 'js';
+    }
+  </script>
+
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <link rel="stylesheet" href="/assets/css/skins/default.css">
+  
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,700,700i|Lora:400,400i,700,700i">
+  <link rel="alternate" type="application/atom+xml" title="HanTen Paradise" href="/atom.xml">
+<!-- start custom head snippets -->
+
+<!-- insert favicons. use http://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+</head>
+
+
+  <body class="layout--post  installing-rails5-2-vue3-0-and-typscript">
+    <nav class="skip-links">
+  <h2 class="screen-reader-text">Skip links</h2>
+  <ul>
+    <li><a href="#primary-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    
+  <div class="navigation-wrapper">
+    <a href="#menu-toggle" id="menu-toggle">Menu</a>
+    <nav id="primary-nav" class="site-nav animated drop">
+      <ul><li><a href="/">Home</a></li></ul>
+    </nav>
+  </div><!-- /.navigation-wrapper -->
+
+
+    <header class="masthead">
+  <div class="wrap">
+    
+    
+    
+      
+        <div class="site-title animated fadeIn"><a href="/">HanTen Paradise</a></div>
+      
+      <p class="site-description animated fadeIn" itemprop="description">Write work logs about daily programming.</p>
+    
+  </div>
+</header><!-- /.masthead -->
+
+
+    <main id="main" class="main-content" aria-label="Content">
+  <article class="h-entry">
+    
+
+    <div class="page-wrapper">
+      <header class="page-header">
+        
+        
+          <h1 id="page-title" class="page-title p-name">Installing Rails5.2, Vue3.0 and Typscript
+</h1>
+        
+      </header>
+
+      <div class="page-sidebar">
+        <div class="page-author h-card p-author"><img src="/images/shunsuke.jpg" class="author-avatar u-photo" alt="Shunske"><div class="author-info"><div class="author-name">
+        <em>by</em> <span class="p-name">Shunske</span>
+      </div><ul class="author-links"><li class="author-link">
+            <a class="u-url" rel="me" href="https://github.com/shunsuke1980"><i class="fab fa-github-square fa-lg" title="GitHub"></i></a>
+          </li></ul>
+    <time class="page-date dt-published" datetime="2021-01-30T00:00:00+00:00"><a class="u-url" href="">January 30, 2021</a>
+</time>
+
+  </div>
+</div>
+
+        
+  <h3 class="page-taxonomies-title">Categories</h3>
+  
+  <ul class="page-taxonomies"><li class="page-taxonomy">installation</li>
+  </ul>
+
+
+        
+
+      </div>
+
+      <div class="page-content">
+        <div class="e-content">
+          <h2 id="rails">Rails</h2>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>bundle init
+<span class="nv">$ </span><span class="nb">echo</span> <span class="s1">'gem "rails", "5.2.2.1"'</span> <span class="o">&gt;&gt;</span> Gemfile
+<span class="nv">$ </span>bundle <span class="nb">install</span> <span class="nt">--path</span> vendor/bundle
+<span class="c"># Don't use --webpack=vue . --webpack=vue is for Vue2.6</span>
+<span class="nv">$ </span>bundle <span class="nb">exec </span>rails _5.2.2.1_ new <span class="nb">.</span> <span class="nt">--skip-coffee</span> <span class="nt">--skip-turbolinks</span> <span class="nt">--skip-test-unit</span> <span class="nt">--webpack</span>
+</code></pre></div></div>
+
+<ul>
+  <li>Open browser (localhost:3000).</li>
+</ul>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>bundle <span class="nb">exec </span>rails s
+</code></pre></div></div>
+
+<ul>
+  <li>
+    <p>Error happens about sqlite.</p>
+  </li>
+  <li>
+    <p>Change sqlite gem version in Gemfile.</p>
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">gem 'sqlite3', '~&gt; 1.3.6'</code></li>
+    </ul>
+  </li>
+</ul>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>bundle <span class="nb">install</span> <span class="nt">--path</span> vendor/bundle
+</code></pre></div></div>
+
+<ul>
+  <li>Open browser (localhost:3000). You can see Hello world.</li>
+</ul>
+
+<h2 id="set-up-vue3">Set up Vue3</h2>
+
+<ul>
+  <li>Installing Vue3</li>
+</ul>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>yarn add <span class="nt">--dev</span> vue@next vue-loader@next @vue/compiler-sfc
+</code></pre></div></div>
+<ul>
+  <li>Check version in package.json.</li>
+</ul>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"rails_vue3_ts"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"private"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"dependencies"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+  </span><span class="nl">"devDependencies"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"@vue/compiler-sfc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"^3.0.5"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"vue"</span><span class="p">:</span><span class="w"> </span><span class="s2">"^3.0.5"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"vue-loader"</span><span class="p">:</span><span class="w"> </span><span class="s2">"^16.1.2"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<ul>
+  <li>Setting Webpack for compiling Vue</li>
+</ul>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">const</span> <span class="p">{</span> <span class="n">environment</span> <span class="p">}</span> <span class="o">=</span> <span class="nb">require</span><span class="p">(</span><span class="s1">'@rails/webpacker'</span><span class="p">)</span>
+<span class="n">const</span> <span class="p">{</span> <span class="no">VueLoaderPlugin</span> <span class="p">}</span> <span class="o">=</span> <span class="nb">require</span><span class="p">(</span><span class="s1">'vue-loader'</span><span class="p">)</span>
+<span class="n">environment</span><span class="p">.</span><span class="nf">plugins</span><span class="p">.</span><span class="nf">prepend</span><span class="p">(</span>
+    <span class="s1">'VueLoaderPlugin'</span><span class="p">,</span>
+    <span class="n">new</span> <span class="no">VueLoaderPlugin</span><span class="p">()</span>
+<span class="p">)</span>
+<span class="n">environment</span><span class="p">.</span><span class="nf">loaders</span><span class="p">.</span><span class="nf">prepend</span><span class="p">(</span><span class="s1">'vue'</span><span class="p">,</span> <span class="p">{</span>
+    <span class="ss">test: </span><span class="sr">/\.vue$/</span><span class="p">,</span>
+    <span class="ss">use: </span><span class="p">[{</span>
+        <span class="ss">loader: </span><span class="s1">'vue-loader'</span>
+    <span class="p">}]</span>
+<span class="p">})</span>
+<span class="n">module</span><span class="p">.</span><span class="nf">exports</span> <span class="o">=</span> <span class="n">environment</span>
+</code></pre></div></div>
+<ul>
+  <li>Edit config/webpacker.yml for adding .vue extensions.</li>
+</ul>
+
+<h2 id="operation-check">Operation check</h2>
+
+<ul>
+  <li>Generate emty rails logic.</li>
+</ul>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>bundle <span class="nb">exec </span>rails g controller HelloWorld index <span class="nt">--no-helper</span> <span class="nt">--no-asset</span>
+</code></pre></div></div>
+
+<ul>
+  <li>Open browser</li>
+</ul>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>http://0.0.0.0:3000/hello_world/index
+</code></pre></div></div>
+
+<h2 id="generate-emty-vue3-logic">Generate emty vue3 logic.</h2>
+
+<ul>
+  <li>Create Vue file</li>
+</ul>
+
+<p>app/javascript/app.vue</p>
+
+<div class="language-vue highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;</span><span class="k">template</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;p&gt;</span>
+    
+  <span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;/</span><span class="k">template</span><span class="nt">&gt;</span>
+
+<span class="nt">&lt;</span><span class="k">script</span><span class="nt">&gt;</span>
+<span class="k">export</span> <span class="k">default</span> <span class="p">{</span>
+  <span class="nx">data</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="p">{</span>
+      <span class="na">message</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Hello Vue!</span><span class="dl">"</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+<span class="nt">&lt;/</span><span class="k">script</span><span class="nt">&gt;</span>
+
+<span class="nt">&lt;</span><span class="k">style</span> <span class="na">scoped</span><span class="nt">&gt;</span>
+<span class="nt">p</span> <span class="p">{</span>
+  <span class="nl">font-size</span><span class="p">:</span> <span class="m">2em</span><span class="p">;</span>
+  <span class="nl">text-align</span><span class="p">:</span> <span class="nb">left</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nt">&lt;/</span><span class="k">style</span><span class="nt">&gt;</span>
+</code></pre></div></div>
+
+<p>app/views/hello_vue/index.html.erb</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;h1&gt;</span>HelloWorld#index<span class="nt">&lt;/h1&gt;</span>
+<span class="nt">&lt;p&gt;</span>Find me in app/views/hello_world/index.html.erb<span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">'vue-app'</span><span class="nt">&gt;&lt;/div&gt;</span>
+</code></pre></div></div>
+
+<p>app/javascript/packs/hello_world.js</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="p">{</span> <span class="nx">createApp</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">vue</span><span class="dl">"</span><span class="p">;</span>
+<span class="k">import</span> <span class="nx">App</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">../app.vue</span><span class="dl">"</span><span class="p">;</span>
+
+<span class="nb">document</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="dl">"</span><span class="s2">DOMContentLoaded</span><span class="dl">"</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="kd">const</span> <span class="nx">app</span> <span class="o">=</span> <span class="nx">createApp</span><span class="p">(</span><span class="nx">App</span><span class="p">);</span>
+  <span class="nx">app</span><span class="p">.</span><span class="nx">mount</span><span class="p">(</span><span class="dl">"</span><span class="s2">#vue-app</span><span class="dl">"</span><span class="p">);</span>
+<span class="p">});</span>
+</code></pre></div></div>
+
+<ul>
+  <li>Open browser</li>
+</ul>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>http://0.0.0.0:3000/hello_world/index
+</code></pre></div></div>
+
+<h2 id="enable-typscript-for-vue3">Enable Typscript for Vue3</h2>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">bin/rails webpacker:install:typescript</code></li>
+</ul>
+
+
+        </div>
+
+        
+          <div class="page-share">
+  <a href="https://twitter.com/intent/tweet?text=Installing+Rails5.2%2C+Vue3.0+and+Typscript%20%2Finstallation%2Finstalling_rails_vue3_ts%2F" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" class="btn btn--twitter btn--small"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i> <span>Tweet</span></a>
+</div>
+
+        
+
+        
+
+        <nav class="page-pagination" role="navigation">
+  
+    <a class="page-previous" href="/installation/tail_command_through_capistrano/">
+      <h4 class="page-pagination-label">Previous</h4>
+      <span class="page-pagination-title">
+        <i class="fas fa-arrow-left"></i> Tail command through capistrano
+
+      </span>
+    </a>
+  
+
+  
+    <a class="page-next" href="/installation/rails-debug/">
+      <h4 class="page-pagination-label">Next</h4>
+      <span class="page-pagination-title">
+        3 tips rails debug
+ <i class="fas fa-arrow-right"></i>
+      </span>
+    </a>
+  
+</nav>
+
+      </div>
+    </div>
+  </article>
+</main>
+
+
+    <footer id="footer" class="site-footer">
+  <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+<div class="social-icons"><a class="social-icon" href="/atom.xml"><i class="fas fa-rss-square fa-2x" title="Feed"></i></a></div><div class="copyright">
+    
+      <p>&copy; 2021 HanTen Paradise. Powered by <a href="https://pages.github.com/" rel="nofollow">Github pages</a>, <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://github.com/mmistakes/so-simple-theme" rel="nofollow">So Simple</a>.</p>
+    
+  </div>
+</footer>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+  <script src="/assets/js/main.min.js"></script>
+  <script src="https://use.fontawesome.com/releases/v5.0.12/js/all.js"></script>
+
+
+  </body>
+
+</html>

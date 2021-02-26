@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<!--
+    So Simple Jekyll Theme 3.2.0
+    Copyright 2013-2019 Michael Rose - mademistakes.com | @mmistakes
+    Free for personal and commercial use under the MIT license
+    https://github.com/mmistakes/so-simple-theme/blob/master/LICENSE
+-->
+<html lang="en-US" class="no-js">
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  
+
+  
+    
+    <!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>3 tips rails debug | HanTen Paradise</title>
+<meta name="generator" content="Jekyll v3.9.0" />
+<meta property="og:title" content="3 tips rails debug" />
+<meta name="author" content="Shunske" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="rdebug-ide" />
+<meta property="og:description" content="rdebug-ide" />
+<meta property="og:site_name" content="HanTen Paradise" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2021-02-25T00:00:00+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="3 tips rails debug" />
+<meta name="twitter:site" content="@" />
+<meta name="twitter:creator" content="@Shunske" />
+<script type="application/ld+json">
+{"description":"rdebug-ide","headline":"3 tips rails debug","dateModified":"2021-02-25T00:00:00+00:00","url":"/installation/rails-debug/","datePublished":"2021-02-25T00:00:00+00:00","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"/installation/rails-debug/"},"author":{"@type":"Person","name":"Shunske"},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+  
+
+  <script>
+    /* Cut the mustard */
+    if ( 'querySelector' in document && 'addEventListener' in window ) {
+      document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + 'js';
+    }
+  </script>
+
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <link rel="stylesheet" href="/assets/css/skins/default.css">
+  
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,700,700i|Lora:400,400i,700,700i">
+  <link rel="alternate" type="application/atom+xml" title="HanTen Paradise" href="/atom.xml">
+<!-- start custom head snippets -->
+
+<!-- insert favicons. use http://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+</head>
+
+
+  <body class="layout--post  3-tips-rails-debug">
+    <nav class="skip-links">
+  <h2 class="screen-reader-text">Skip links</h2>
+  <ul>
+    <li><a href="#primary-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    
+  <div class="navigation-wrapper">
+    <a href="#menu-toggle" id="menu-toggle">Menu</a>
+    <nav id="primary-nav" class="site-nav animated drop">
+      <ul><li><a href="/">Home</a></li></ul>
+    </nav>
+  </div><!-- /.navigation-wrapper -->
+
+
+    <header class="masthead">
+  <div class="wrap">
+    
+    
+    
+      
+        <div class="site-title animated fadeIn"><a href="/">HanTen Paradise</a></div>
+      
+      <p class="site-description animated fadeIn" itemprop="description">Write work logs about daily programming.</p>
+    
+  </div>
+</header><!-- /.masthead -->
+
+
+    <main id="main" class="main-content" aria-label="Content">
+  <article class="h-entry">
+    
+
+    <div class="page-wrapper">
+      <header class="page-header">
+        
+        
+          <h1 id="page-title" class="page-title p-name">3 tips rails debug
+</h1>
+        
+      </header>
+
+      <div class="page-sidebar">
+        <div class="page-author h-card p-author"><img src="/images/shunsuke.jpg" class="author-avatar u-photo" alt="Shunske"><div class="author-info"><div class="author-name">
+        <em>by</em> <span class="p-name">Shunske</span>
+      </div><ul class="author-links"><li class="author-link">
+            <a class="u-url" rel="me" href="https://github.com/shunsuke1980"><i class="fab fa-github-square fa-lg" title="GitHub"></i></a>
+          </li></ul>
+    <time class="page-date dt-published" datetime="2021-02-25T00:00:00+00:00"><a class="u-url" href="">February 25, 2021</a>
+</time>
+
+  </div>
+</div>
+
+        
+  <h3 class="page-taxonomies-title">Categories</h3>
+  
+  <ul class="page-taxonomies"><li class="page-taxonomy">installation</li>
+  </ul>
+
+
+        
+
+      </div>
+
+      <div class="page-content">
+        <div class="e-content">
+          <h2 id="rdebug-ide">rdebug-ide</h2>
+
+<p>How to debug for Rails application using VSCode.</p>
+
+<ul>
+  <li>Install ruby extention to VSCode</li>
+</ul>
+
+<p>https://marketplace.visualstudio.com/items?itemName=rebornix.Ruby</p>
+
+<ul>
+  <li>Add this code to your <code class="language-plaintext highlighter-rouge">Gemfile</code> and <code class="language-plaintext highlighter-rouge">bundle install</code> to your Rails application</li>
+</ul>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">group</span> <span class="ss">:development</span> <span class="k">do</span>
+  <span class="c1"># Debug for vscode</span>
+  <span class="n">gem</span> <span class="s2">"ruby-debug-ide"</span>
+  <span class="n">gem</span> <span class="s2">"debase"</span>
+<span class="k">end</span>
+</code></pre></div></div>
+<ul>
+  <li>Add config to your VSCode</li>
+</ul>
+
+<p>Add this config to <code class="language-plaintext highlighter-rouge">.vscode/launch.json</code></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Debug Rails",
+      "type": "Ruby",
+      "request": "launch",
+      "cwd": "${workspaceRoot}",
+      "program": "${workspaceRoot}/bin/rails",
+      "pathToRDebugIDE": "${workspaceRoot}/vendor/bundle/ruby/2.4.0/bin/rdebug-ide",
+      "useBundler": true,
+      "args": [
+        "server"
+      ]
+    }
+  ]
+}
+</code></pre></div></div>
+
+<p><img src="/images/2021-02-25-vscode.png" alt="vscode" /></p>
+
+<h2 id="pry">pry</h2>
+
+<ul>
+  <li>Automatically require some gems for pry command</li>
+</ul>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>❯ <span class="nb">tail</span> ~/.pryrc
+begin
+  require <span class="s1">'awesome_print'</span>
+  require <span class="s1">'tapp'</span>
+rescue LoadError
+<span class="k">else
+  </span>AwesomePrint.pry!
+end
+</code></pre></div></div>
+<h2 id="awesome_print">awesome_print</h2>
+
+<ul>
+  <li>Show params for human friendly.</li>
+</ul>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>❯ bundle <span class="nb">exec </span>pry
+<span class="o">[</span>1] pry<span class="o">(</span>main<span class="o">)&gt;</span> h <span class="o">=</span> <span class="o">{</span> a:100, b:200 <span class="o">}}</span>
+
+<span class="o">{</span>
+    :a <span class="o">=&gt;</span> 100,
+    :b <span class="o">=&gt;</span> 200
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h2 id="tapp">tapp</h2>
+
+<ul>
+  <li>Useful gem for print debug. Print values in method chain.</li>
+</ul>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>❯ bundle <span class="nb">exec </span>pry
+<span class="o">[</span>1] pry<span class="o">(</span>main<span class="o">)&gt;</span> <span class="o">{</span> a:100, b:200 <span class="o">}</span>.tapp.to_a.tapp.first.tapp
+<span class="o">{</span>:a<span class="o">=&gt;</span>100, :b<span class="o">=&gt;</span>200<span class="o">}</span>
+<span class="o">[[</span>:a, 100], <span class="o">[</span>:b, 200]]
+<span class="o">[</span>:a, 100]
+<span class="o">[</span>
+    <span class="o">[</span>0] :a,
+    <span class="o">[</span>1] 100
+<span class="o">]</span>
+</code></pre></div></div>
+
+<ul>
+  <li>Sometimes I forgot print debug code using p and pp. But <code class="language-plaintext highlighter-rouge">tapp</code> gems prepare command for findind debug code.</li>
+</ul>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bundle <span class="nb">exec </span>tapp <span class="nb">grep</span>
+</code></pre></div></div>
+
+        </div>
+
+        
+          <div class="page-share">
+  <a href="https://twitter.com/intent/tweet?text=3+tips+rails+debug%20%2Finstallation%2Frails-debug%2F" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" class="btn btn--twitter btn--small"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i> <span>Tweet</span></a>
+</div>
+
+        
+
+        
+
+        <nav class="page-pagination" role="navigation">
+  
+    <a class="page-previous" href="/installation/installing_rails_vue3_ts/">
+      <h4 class="page-pagination-label">Previous</h4>
+      <span class="page-pagination-title">
+        <i class="fas fa-arrow-left"></i> Installing Rails5.2, Vue3.0 and Typscript
+
+      </span>
+    </a>
+  
+
+  
+</nav>
+
+      </div>
+    </div>
+  </article>
+</main>
+
+
+    <footer id="footer" class="site-footer">
+  <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+<div class="social-icons"><a class="social-icon" href="/atom.xml"><i class="fas fa-rss-square fa-2x" title="Feed"></i></a></div><div class="copyright">
+    
+      <p>&copy; 2021 HanTen Paradise. Powered by <a href="https://pages.github.com/" rel="nofollow">Github pages</a>, <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://github.com/mmistakes/so-simple-theme" rel="nofollow">So Simple</a>.</p>
+    
+  </div>
+</footer>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+  <script src="/assets/js/main.min.js"></script>
+  <script src="https://use.fontawesome.com/releases/v5.0.12/js/all.js"></script>
+
+
+  </body>
+
+</html>

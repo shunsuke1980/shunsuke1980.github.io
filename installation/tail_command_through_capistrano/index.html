@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<!--
+    So Simple Jekyll Theme 3.2.0
+    Copyright 2013-2019 Michael Rose - mademistakes.com | @mmistakes
+    Free for personal and commercial use under the MIT license
+    https://github.com/mmistakes/so-simple-theme/blob/master/LICENSE
+-->
+<html lang="en-US" class="no-js">
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  
+
+  
+    
+    <!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Tail command through capistrano | HanTen Paradise</title>
+<meta name="generator" content="Jekyll v3.9.0" />
+<meta property="og:title" content="Tail command through capistrano" />
+<meta name="author" content="Shunske" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="desc &quot;tail production log files&quot; task :tail_logs, :roles =&gt; ENV[&#39;ROLE&#39;] do default_run_options[:pty] = true run &quot;tail -f #{shared_path}/log/production.log&quot; do |channel, stream, data| puts # for an extra line break before the host name puts &quot;#{channel[:host]}: #{data}&quot; break if stream == :err end end" />
+<meta property="og:description" content="desc &quot;tail production log files&quot; task :tail_logs, :roles =&gt; ENV[&#39;ROLE&#39;] do default_run_options[:pty] = true run &quot;tail -f #{shared_path}/log/production.log&quot; do |channel, stream, data| puts # for an extra line break before the host name puts &quot;#{channel[:host]}: #{data}&quot; break if stream == :err end end" />
+<meta property="og:site_name" content="HanTen Paradise" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2011-02-04T00:00:00+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Tail command through capistrano" />
+<meta name="twitter:site" content="@" />
+<meta name="twitter:creator" content="@Shunske" />
+<script type="application/ld+json">
+{"description":"desc &quot;tail production log files&quot; task :tail_logs, :roles =&gt; ENV[&#39;ROLE&#39;] do default_run_options[:pty] = true run &quot;tail -f #{shared_path}/log/production.log&quot; do |channel, stream, data| puts # for an extra line break before the host name puts &quot;#{channel[:host]}: #{data}&quot; break if stream == :err end end","headline":"Tail command through capistrano","dateModified":"2011-02-04T00:00:00+00:00","url":"/installation/tail_command_through_capistrano/","datePublished":"2011-02-04T00:00:00+00:00","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"/installation/tail_command_through_capistrano/"},"author":{"@type":"Person","name":"Shunske"},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+  
+
+  <script>
+    /* Cut the mustard */
+    if ( 'querySelector' in document && 'addEventListener' in window ) {
+      document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + 'js';
+    }
+  </script>
+
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <link rel="stylesheet" href="/assets/css/skins/default.css">
+  
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,700,700i|Lora:400,400i,700,700i">
+  <link rel="alternate" type="application/atom+xml" title="HanTen Paradise" href="/atom.xml">
+<!-- start custom head snippets -->
+
+<!-- insert favicons. use http://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+</head>
+
+
+  <body class="layout--post  tail-command-through-capistrano">
+    <nav class="skip-links">
+  <h2 class="screen-reader-text">Skip links</h2>
+  <ul>
+    <li><a href="#primary-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    
+  <div class="navigation-wrapper">
+    <a href="#menu-toggle" id="menu-toggle">Menu</a>
+    <nav id="primary-nav" class="site-nav animated drop">
+      <ul><li><a href="/">Home</a></li></ul>
+    </nav>
+  </div><!-- /.navigation-wrapper -->
+
+
+    <header class="masthead">
+  <div class="wrap">
+    
+    
+    
+      
+        <div class="site-title animated fadeIn"><a href="/">HanTen Paradise</a></div>
+      
+      <p class="site-description animated fadeIn" itemprop="description">Write work logs about daily programming.</p>
+    
+  </div>
+</header><!-- /.masthead -->
+
+
+    <main id="main" class="main-content" aria-label="Content">
+  <article class="h-entry">
+    
+
+    <div class="page-wrapper">
+      <header class="page-header">
+        
+        
+          <h1 id="page-title" class="page-title p-name">Tail command through capistrano
+</h1>
+        
+      </header>
+
+      <div class="page-sidebar">
+        <div class="page-author h-card p-author"><img src="/images/shunsuke.jpg" class="author-avatar u-photo" alt="Shunske"><div class="author-info"><div class="author-name">
+        <em>by</em> <span class="p-name">Shunske</span>
+      </div><ul class="author-links"><li class="author-link">
+            <a class="u-url" rel="me" href="https://github.com/shunsuke1980"><i class="fab fa-github-square fa-lg" title="GitHub"></i></a>
+          </li></ul>
+    <time class="page-date dt-published" datetime="2011-02-04T00:00:00+00:00"><a class="u-url" href="">February 4, 2011</a>
+</time>
+
+  </div>
+</div>
+
+        
+  <h3 class="page-taxonomies-title">Categories</h3>
+  
+  <ul class="page-taxonomies"><li class="page-taxonomy">installation</li>
+  </ul>
+
+
+        
+
+      </div>
+
+      <div class="page-content">
+        <div class="e-content">
+          <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">desc</span> <span class="s2">"tail production log files"</span>
+<span class="n">task</span> <span class="ss">:tail_logs</span><span class="p">,</span> <span class="ss">:roles</span> <span class="o">=&gt;</span> <span class="no">ENV</span><span class="p">[</span><span class="s1">'ROLE'</span><span class="p">]</span> <span class="k">do</span>
+ <span class="n">default_run_options</span><span class="p">[</span><span class="ss">:pty</span><span class="p">]</span> <span class="o">=</span> <span class="kp">true</span>
+ <span class="n">run</span> <span class="s2">"tail -f </span><span class="si">#{</span><span class="n">shared_path</span><span class="si">}</span><span class="s2">/log/production.log"</span> <span class="k">do</span> <span class="o">|</span><span class="n">channel</span><span class="p">,</span> <span class="n">stream</span><span class="p">,</span> <span class="n">data</span><span class="o">|</span>
+   <span class="nb">puts</span>  <span class="c1"># for an extra line break before the host name</span>
+   <span class="nb">puts</span> <span class="s2">"</span><span class="si">#{</span><span class="n">channel</span><span class="p">[</span><span class="ss">:host</span><span class="p">]</span><span class="si">}</span><span class="s2">: </span><span class="si">#{</span><span class="n">data</span><span class="si">}</span><span class="s2">"</span>
+   <span class="k">break</span> <span class="k">if</span> <span class="n">stream</span> <span class="o">==</span> <span class="ss">:err</span>
+ <span class="k">end</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+        </div>
+
+        
+          <div class="page-share">
+  <a href="https://twitter.com/intent/tweet?text=Tail+command+through+capistrano%20%2Finstallation%2Ftail_command_through_capistrano%2F" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" class="btn btn--twitter btn--small"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i> <span>Tweet</span></a>
+</div>
+
+        
+
+        
+
+        <nav class="page-pagination" role="navigation">
+  
+
+  
+    <a class="page-next" href="/installation/installing_rails_vue3_ts/">
+      <h4 class="page-pagination-label">Next</h4>
+      <span class="page-pagination-title">
+        Installing Rails5.2, Vue3.0 and Typscript
+ <i class="fas fa-arrow-right"></i>
+      </span>
+    </a>
+  
+</nav>
+
+      </div>
+    </div>
+  </article>
+</main>
+
+
+    <footer id="footer" class="site-footer">
+  <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+<div class="social-icons"><a class="social-icon" href="/atom.xml"><i class="fas fa-rss-square fa-2x" title="Feed"></i></a></div><div class="copyright">
+    
+      <p>&copy; 2021 HanTen Paradise. Powered by <a href="https://pages.github.com/" rel="nofollow">Github pages</a>, <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://github.com/mmistakes/so-simple-theme" rel="nofollow">So Simple</a>.</p>
+    
+  </div>
+</footer>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+  <script src="/assets/js/main.min.js"></script>
+  <script src="https://use.fontawesome.com/releases/v5.0.12/js/all.js"></script>
+
+
+  </body>
+
+</html>
