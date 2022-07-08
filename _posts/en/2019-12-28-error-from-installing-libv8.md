@@ -17,7 +17,6 @@ https://qiita.com/shimx/items/32e85093f21e673c7127
 原因は、rbenv環境だったのですが、bundleがrbenv内のgemを使っていないのが問題のようでした。
 rbenvにbundleをインストール後に、bundle installが通りました。
 
-
 # Macデフォルトのbundleを使っている
 
 ```shell
