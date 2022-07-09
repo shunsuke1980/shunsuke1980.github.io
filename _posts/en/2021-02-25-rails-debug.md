@@ -52,7 +52,6 @@ Add this config to `.vscode/launch.json`
 
 - Automatically require some gems for pry command
 
-
 ```shell
 ❯ tail ~/.pryrc
 begin
@@ -63,6 +62,7 @@ else
   AwesomePrint.pry!
 end
 ```
+
 ## awesome_print
 
 - Show params for human friendly.
