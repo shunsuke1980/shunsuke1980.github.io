@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "This week I learn 20220703"
-date:   2022-07-03 09:00:00 +0900
+date: 2022-07-03 09:00:00 +0900
 categories: this_week_i_learn
 tags: jp this_week_i_learn
 ---
